@@ -6,14 +6,14 @@ use App\LosData;
 use Goutte\Client;
 use Illuminate\Console\Command;
 
-class CrawlDataAndPopulateDatabase extends Command
+class CrawlDuivenspel extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'crawl:data';
+    protected $signature = 'crawl:duivenspel';
 
     /**
      * The console command description.

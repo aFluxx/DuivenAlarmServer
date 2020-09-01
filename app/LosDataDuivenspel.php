@@ -2,10 +2,9 @@
 
 namespace App;
 
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
-class LosData extends Model
+class LosDataDuivenspel extends Model
 {
     /**
      * The attributes that aren't mass assignable.
@@ -13,6 +12,13 @@ class LosData extends Model
      * @var array
      */
     protected $guarded = [];
+
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'los_data_duivenspel';
 
     public function setLosplaatsAttribute($value)
     {
