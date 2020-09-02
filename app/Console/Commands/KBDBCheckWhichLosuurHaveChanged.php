@@ -42,7 +42,7 @@ class KBDBCheckWhichLosuurHaveChanged extends Command
     {
         $livedata = $this->argument('livedata');
 
-        foreach ($livedata as $data) {
+        foreach ($livedata as $key => $data) {
             $record = LosDataKbdb::where([
                 ['losplaats', '=', $data[0]],
                 ['weer', '=', $data[1]],
@@ -53,7 +53,11 @@ class KBDBCheckWhichLosuurHaveChanged extends Command
             $currentOpmerking = $data[2];
             $currentLiveLosuur = $data[3];
 
-            if (
+            if (!$record) {
+                if ($key == 0) {
+                    Log::info('$$$ No data yet, adding first data to database $$$');
+                }
+            } elseif (
                 in_array($record->losuur, ['wachten', 'attendre', 'Wachten', 'Attendre'])
             ) {
                 Log::info('Losuur is veranderd voor vlucht: ' . $currentLosplaats);

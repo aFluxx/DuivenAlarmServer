@@ -2,11 +2,11 @@
 
 namespace App\Console\Commands;
 
-use App\LosData;
+use App\LosDataDuivenspel;
 use Goutte\Client;
 use Illuminate\Console\Command;
 
-class CrawlDuivenspel extends Command
+class DuivenspelCrawl extends Command
 {
     /**
      * The name and signature of the console command.
@@ -49,10 +49,10 @@ class CrawlDuivenspel extends Command
             });
         });
 
-        LosData::truncate();
+        LosDataDuivenspel::truncate();
 
         foreach (array_slice($table, 1) as $tabledata) {
-            LosData::create([
+            LosDataDuivenspel::create([
                 'losplaats' => $tabledata[0],
                 'verbond' => $tabledata[1],
                 'losuur' => $tabledata[2],

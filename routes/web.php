@@ -15,3 +15,5 @@ Route::get('/data-duivenspel', function () {
 Route::get('/testtable', function () {
     return view('testTable');
 });
+
+Route::get('/kbdb/table/{table}', 'KBDBTableController@show')->name('table.show');
