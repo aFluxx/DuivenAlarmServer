@@ -1,10 +1,21 @@
 <?php
 
-use App\LosData;
+use App\LosDataDuivenspel;
+use App\LosDataKbdb;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/data', function () {
-    return LosData::get()->makeHidden(['id', 'created_at', 'updated_at']);
+Auth::routes(['register' => false]);
+
+Route::get('/data-kbdb', function () {
+    return LosDataKbdb::get()->makeHidden(['id', 'created_at', 'updated_at']);
 });
 
-Auth::routes(['register' => false]);
+Route::get('/data-duivenspel', function () {
+    return LosDataDuivenspel::get()->makeHidden(['id', 'created_at', 'updated_at']);
+});
+
+Route::get('/testtable', function () {
+    return view('testTable');
+});
+
+Route::get('/kbdb/table/{table}', 'KBDBTableController@show')->name('table.show');

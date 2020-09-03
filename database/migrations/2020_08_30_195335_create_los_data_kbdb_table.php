@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLosDataTable extends Migration
+class CreateLosDataKbdbTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateLosDataTable extends Migration
      */
     public function up()
     {
-        Schema::create('los_data', function (Blueprint $table) {
+        Schema::create('los_data_kbdb', function (Blueprint $table) {
             $table->id();
-            $table->string('losplaats');
-            $table->string('verbond');
-            $table->string('losuur');
-            $table->string('opmerking');
+            $table->string('losplaats')->nullable();
+            $table->string('opmerking')->nullable();
+            $table->string('losuur')->nullable();
+            $table->string('weer')->nullable();
             $table->timestamps();
         });
     }
