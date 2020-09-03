@@ -14,8 +14,4 @@ Route::get('/data-duivenspel', function () {
     return LosDataDuivenspel::get()->makeHidden(['id', 'created_at', 'updated_at']);
 });
 
-Route::get('/testtable', function () {
-    return view('testTable');
-});
-
 Route::get('/kbdb/table/{table}', 'KBDBTableController@show')->name('table.show');
